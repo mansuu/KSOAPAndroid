@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import ksoapexample.com.ksoapexample.soap.SoapCall;
 import ksoapexample.com.ksoapexample.utils.Util;
@@ -40,7 +41,9 @@ private Button btn_post_to_server;
                 @Override
                 protected void onPostExecute(Object response) {
                     super.onPostExecute(response);
-                    Log.e("response object",response+"");
+                    if(response==null){
+                        Toast.makeText(context,"ERROR 404 found",Toast.LENGTH_SHORT).show();
+                    }
                 }
             }.execute();
 
